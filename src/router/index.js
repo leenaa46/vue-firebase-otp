@@ -8,8 +8,8 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'Home',
-        component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
+        name: 'PhoneInput',
+        component: () => import(/* webpackChunkName: "home" */ '@/views/Phone/index.vue'),
       },
     ],
   },
@@ -20,7 +20,7 @@ const routes = [
       {
         path: '',
         name: 'Otp',
-        component: () => import(/* webpackChunkName: "home" */ '@/views/OtpInput.vue'),
+        component: () => import(/* webpackChunkName: "home" */ '@/views/Otp/Index.vue'),
       },
     ],
   },

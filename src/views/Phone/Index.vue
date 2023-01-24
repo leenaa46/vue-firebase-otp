@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-import InputPhone from "@/components/InputPhone.vue";
+import InputPhone from "@/views/Phone/InputPhone.vue";
 </script>

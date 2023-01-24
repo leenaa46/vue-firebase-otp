@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-import InputOtp from "@/components/InputOtp.vue";
+import InputOtp from "@/views/Otp/InputOtp.vue";
 </script>
