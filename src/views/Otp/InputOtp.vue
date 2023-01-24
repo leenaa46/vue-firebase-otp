@@ -82,7 +82,7 @@ function verifyOtp() {
     .confirm(otp.value)
     .then(function (result) {
       // User signed in successfully.
-      var user = result.user;
+      store.otp_result = result;
       // ...
       //route to set password !
       router.push({ path: "/home" });

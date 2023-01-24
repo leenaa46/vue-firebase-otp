@@ -4,8 +4,12 @@
       <div class="text-body-1 font-weight-bold mb-n1">Welcome</div>
 
       <div class="py-14" />
+
+      <pre>{{ store.otp_result }}</pre>
     </v-responsive>
   </v-container>
 </template>
 
-<script setup></script>
+<script setup>
+import store from "@/store";
+</script>
