@@ -24,6 +24,17 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/home',
+    component: () => import('@/layouts/default/Default.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Home',
+        component: () => import(/* webpackChunkName: "home" */ '@/views/Home/Index.vue'),
+      },
+    ],
+  },
 ]
 
 const router = createRouter({

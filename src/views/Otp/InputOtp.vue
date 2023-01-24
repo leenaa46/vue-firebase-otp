@@ -1,12 +1,18 @@
 <template>
   <v-container class="fill-height">
     <v-responsive class="d-flex align-center text-center fill-height">
+      <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
+
+      <h1 class="text-h2 font-weight-bold">Login</h1>
+
+      <div class="py-14" />
+
       <div class="text-body-1 font-weight-normal mb-n1">
         Otp code has sended to <strong>xxxxxxxx</strong>, please input code you
         got to below section
       </div>
 
-      <div class="py-14" />
+      <div class="py-4" />
       <v-row>
         <v-col>
           <v-form ref="form" v-model="valid" lazy-validation>
@@ -46,6 +52,8 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 const form = ref(null);
 const otp = ref("");
@@ -60,6 +68,8 @@ async function validate() {
   const { valid } = await form.value.validate();
 
   if (valid) alert("Form is valid");
+
+  router.push({ path: "/home" });
 }
 function reset() {
   form.value.reset();

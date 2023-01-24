@@ -19,14 +19,19 @@
                   v-model="phone_number"
                   :rules="rules.phone_number"
                   type="number"
-                  block
                 ></v-text-field>
               </v-col>
             </v-row>
 
             <v-row>
               <v-col>
-                <v-btn text color="primary" class="me-4" @click="validate">
+                <v-btn
+                  block
+                  text
+                  color="primary"
+                  class="me-4"
+                  @click="validate"
+                >
                   Send Otp
                 </v-btn>
               </v-col>
@@ -40,6 +45,8 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 const form = ref(null);
 const valid = ref(true);
@@ -55,6 +62,8 @@ async function validate() {
   const { valid } = await form.value.validate();
 
   if (valid) alert("Form is valid");
+
+  router.push({ path: "/otp" });
 }
 function reset() {
   form.value.reset();
