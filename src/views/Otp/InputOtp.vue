@@ -61,20 +61,37 @@ const otp = ref("");
 const rules = ref({
   otp: [
     (v) => !!v || "Otp is required",
-    (v) => (v && v.length != 6) || "Otp Code must be 6 numbers",
+    (v) => (v && v.length == 6) || "Otp Code must be 6 numbers",
   ],
 });
 
 async function validate() {
   const { valid } = await form.value.validate();
 
-  if (valid) router.push({ path: "/home" });
+  if (valid) verifyOtp();
 }
 function reset() {
   form.value.reset();
 }
 function resetValidation() {
   form.value.resetValidation();
+}
+
+function verifyOtp() {
+  window.confirmationResult
+    .confirm(otp.value)
+    .then(function (result) {
+      // User signed in successfully.
+      var user = result.user;
+      // ...
+      //route to set password !
+      router.push({ path: "/home" });
+    })
+    .catch(function (error) {
+      // User couldn't sign in (bad verification code?)
+      // ...
+      alert("Otp Not Collected");
+    });
 }
 
 onBeforeMount(() => {
