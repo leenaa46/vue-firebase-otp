@@ -51,7 +51,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onBeforeMount } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 import store from "@/store";
@@ -76,4 +76,8 @@ function reset() {
 function resetValidation() {
   form.value.resetValidation();
 }
+
+onBeforeMount(() => {
+  if (!store.phone) router.push({ path: "/" });
+});
 </script>
