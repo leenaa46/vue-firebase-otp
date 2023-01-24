@@ -47,6 +47,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
+import store from "@/store";
 
 const form = ref(null);
 const valid = ref(true);
@@ -54,16 +55,17 @@ const phone_number = ref("");
 const rules = ref({
   phone_number: [
     (v) => !!v || "Phone is required",
-    (v) => (v && v.length != 10) || "Name must be 8 numbers",
+    (v) => (v && v.length == 8) || "Phone must be 8 numbers",
   ],
 });
 
 async function validate() {
   const { valid } = await form.value.validate();
 
-  if (valid) alert("Form is valid");
-
-  router.push({ path: "/otp" });
+  if (valid) {
+    store.phone = phone_number;
+    router.push({ path: "/otp" });
+  }
 }
 function reset() {
   form.value.reset();

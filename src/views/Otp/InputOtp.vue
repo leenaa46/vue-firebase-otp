@@ -8,8 +8,8 @@
       <div class="py-14" />
 
       <div class="text-body-1 font-weight-normal mb-n1">
-        Otp code has sended to <strong>xxxxxxxx</strong>, please input code you
-        got to below section
+        Otp code has sended to <strong>{{ store.phone }}</strong
+        >, please input code you got to below section
       </div>
 
       <div class="py-4" />
@@ -54,6 +54,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
+import store from "@/store";
 
 const form = ref(null);
 const otp = ref("");
@@ -67,9 +68,7 @@ const rules = ref({
 async function validate() {
   const { valid } = await form.value.validate();
 
-  if (valid) alert("Form is valid");
-
-  router.push({ path: "/home" });
+  if (valid) router.push({ path: "/home" });
 }
 function reset() {
   form.value.reset();
