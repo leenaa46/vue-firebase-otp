@@ -54,7 +54,6 @@ import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 import store from "@/store";
-import firebase from "firebase/compat/app";
 import {
   getAuth,
   RecaptchaVerifier,
